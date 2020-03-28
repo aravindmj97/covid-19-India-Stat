@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Covid-19 India STAT</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <script data-ad-client="ca-pub-7896780162740295" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <style type="text/css">
+        html * {
+            font-family: 'Roboto Slab', serif !important;
+        }
+        
+        .chartWrapper {
+            position: relative;
+            height: 30%;
+        }
+        
+        .chartWrapper > canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            height: 30%;
+        }
+        
+        .chartAreaWrapper {
+            overflow-x: scroll;
+            height: 30%;
+        }
+        
+        .vticker {}
+        
+        .vticker ul {
+            padding: 0px;
+        }
+        
+        .vticker li {
+            list-style: none;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="blue-grey darken-3" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo center responsive" style="font-size: 125%">Covid - 19 India STAT</a>
+        </div>
+    </nav>
+    <div class="section no-pad-bot">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col s12 m8 l8">
+                    <div class="container">
+                        <canvas id="chart-total" height="250"></canvas>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="container">
+                        <h5 style="font-weight: bold; padding-left: 10px;">Tips To Follow</h5>
+                        <div class="vticker">
+                            <ul id="tipsCard">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m6">
+                    <div id="map" style="height: 600px">
+                    </div>
+                </div>
+
+                <div class="col s12 m6">
+                    <div class="chartWrapper">
+                        <div class="chartAreaWrapper">
+                            <div class="chartAreaWrapper2">
+                                <canvas id="chart-FuelSpend" height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <br>
+
+    </div>
+
+    <div class="container-fluid">
+      <div class="section">
+        <div class="row">
+                <div class="col s12 m6 l6">
+                    <div class="container">
+                        <h5 style="font-weight: bold; padding-left: 10px;">Latest News</h5>
+                        <div class="preloader-wrapper small active" id="loader">
+						    <div class="spinner-layer spinner-green-only">
+						      <div class="circle-clipper left">
+						        <div class="circle"></div>
+						      </div><div class="gap-patch">
+						        <div class="circle"></div>
+						      </div><div class="circle-clipper right">
+						        <div class="circle"></div>
+						      </div>
+						    </div>
+						</div>
+                        <div class="vticker">
+                            <ul id="newsCards">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+
+
+    <footer class="page-footer blue-grey darken-3">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container" style="font-size: 10px">
+                Department of Computer Applications - <a class="orange-text text-lighten-3" href="https://mesmarampally.org/Department/Index.aspx?Option=5&Sub=59" target="_blank">MES College Marampally</a><br /> Courtesy - Data (covid19india.org) & News (The Hindu RSS Feeds)
+            </div>
+        </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script type="text/javascript" src="js/operations.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://rawgit.com/Anujarya300/bubble_maps/master/data/geography-data/datamaps.none.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easy-ticker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var dd = $('.vticker').easyTicker({
+                direction: 'up',
+                easing: 'easeInOutBack',
+                speed: 'slow',
+                interval: 5000,
+                height: 'auto',
+                visible: 1,
+                mousePause: 0,
+                controls: {
+                    up: '.up',
+                    down: '.down',
+                    toggle: '.toggle',
+                    stopText: 'Stop !!!'
+                }
+            }).data('easyTicker');
+
+        });
+    </script>
+    <script>
+        var dataMain;
+        var canvasFuelSpend = $('#chart-FuelSpend');
+        var ctx = document.getElementById("chart-total").getContext("2d");
+        $.ajax({
+            url: "https://api.covid19india.org/data.json",
+            success: function(data) {
+                dataMain = data.statewise;
+                var mappedData = makeData(dataMain);
+                var stateGraphData = makeDataForStateGraph(dataMain);
+                var totalGraphData = makeDataForProgressGraph(data.cases_time_series);
+                var map = new Datamap({
+                    element: document.getElementById('map'),
+                    responsive: true,
+                    geographyConfig: {
+                        popupOnHover: true,
+                        highlightOnHover: true,
+                        borderColor: '#FDFDFD',
+                        borderWidth: 0.5,
+                        dataUrl: 'https://raw.githubusercontent.com/covid19india/covid19india-react/master/public/maps/india.json',
+                        popupTemplate: function(geography, data) {
+                            var i = parseInt(mappedData[geography.properties.ST_NM.toLowerCase().split(" ")[0]])
+                            return ['<div class="hoverinfo"><strong>' + dataMain[i].state + '</strong>',
+                                '<br/>Active: ' + dataMain[i].active + '',
+                                '<br/>Confirmed: ' + dataMain[i].confirmed + '',
+                                '<br/>Deaths: ' + dataMain[i].deaths + '',
+                                '<br/>Recovered: ' + dataMain[i].recovered + '',
+                                '<br/>Last Update: ' + dataMain[i].lastupdatedtime + '',
+                                '</div>'
+                            ].join('');
+                        },
+                        //dataJson: topoJsonData
+                    },
+                    fills: {
+                        'MAJOR': '#306596',
+                        'MEDIUM': '#0fa0fa',
+                        'MINOR': '#bada55',
+                        defaultFill: '#abdda4'
+                    },
+                    scope: 'india',
+                    setProjection: function(element, options) {
+                        var projection, path;
+                        projection = d3.geo.mercator()
+                            .center([78.9629, 23.5937])
+                            .scale(element.offsetWidth * 1.5)
+                            .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+
+                        path = d3.geo.path()
+                            .projection(projection);
+
+                        return {
+                            path: path,
+                            projection: projection
+                        };
+                    }
+                });
+                var chartFuelSpend = new Chart(canvasFuelSpend, {
+                    type: 'bar',
+                    data: {
+                        datasets: [{
+                            label: 'Confirmed',
+                            data: stateGraphData.confirmed,
+                            barThickness: 2,
+                            backgroundColor: "#abdda4",
+                        }, {
+                            label: 'Recovered',
+                            data: stateGraphData.recovered,
+                            barThickness: 2,
+                            backgroundColor: "#F4B400",
+                        }, {
+                            label: 'Deceased',
+                            data: stateGraphData.deceased,
+                            barThickness: 2,
+                            backgroundColor: "#DB4437",
+                        }],
+                        labels: stateGraphData.states
+                    },
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        }
+                    }
+                });
+                addData(10, chartFuelSpend);
+                var data = {
+                    labels: totalGraphData.label,
+                    datasets: [{
+                        label: "Total Confirmed Cases",
+                        fill: false,
+                         borderColor: "#4285F4",
+                         backgroundColor: "#4285F4",
+                        data: totalGraphData.data.confirmed
+                    }, {
+                        label: "Total Recovered Cases",
+                        fill: false,
+                         borderColor: "#F4B400",
+                         backgroundColor: "#F4B400",
+                        data: totalGraphData.data.recovered
+                    }, {
+                        label: "Total Deceased Cases",
+                        fill: false,
+                         borderColor: "#DB4437",
+                         backgroundColor: "#DB4437",
+                        data: totalGraphData.data.deceased
+                    }]
+                };
+                var myLineChart = new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: {}
+                });
+                d3.select(window).on('resize', function() {
+                    map.resize();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
