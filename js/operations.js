@@ -137,11 +137,12 @@ function makeDataForProgressGraph(data){
     var count = 0;
     var c=0,r=0,d=0;
     for(var j=i*10; j< data.length;j++){
-        c < data[j].totalconfirmed ? c = data[j].totalconfirmed : c = c;
-        r < data[j].totalrecovered ? r = data[j].totalrecovered : r = r;
-        d < data[j].totaldeceased ? d = data[j].totaldeceased : d = d;
-        if(count == 10) break;
+    	if(count == 10) break;
         count++;
+        c = data[j].totalconfirmed ;
+         r = data[j].totalrecovered ;
+         d = data[j].totaldeceased ;
+        
     }
     var endDate = data[j-1].date;
     map.label.push(endDate);
