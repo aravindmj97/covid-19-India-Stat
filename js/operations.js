@@ -55,7 +55,7 @@ function publishNewsData(newsData, type){
     $.each(newsData, function(i, item) {
 
       items.push('<li>'+
-                      '<div class="card blue-grey darken-1">'+
+                      '<div class="card teal lighten-2">'+
                           '<div class="card-content white-text">'+
                               '<span class="card-title">'+item.title+'</span>'+
                               '<div class="chip">'+
@@ -137,7 +137,14 @@ function makeDataForProgressGraph(data){
     var count = 0;
     var c=0,r=0,d=0;
     for(var j=i*10; j< data.length;j++){
+<<<<<<< HEAD
+       c = data[j].totalconfirmed;
+        r = data[j].totalrecovered;
+       d = data[j].totaldeceased;
+        if(count == 10) break;
+=======
     	if(count == 10) break;
+>>>>>>> 83de725982084f8c412003a019b337bec5d04b49
         count++;
         c = data[j].totalconfirmed ;
          r = data[j].totalrecovered ;
