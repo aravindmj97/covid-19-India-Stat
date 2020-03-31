@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Covid-19 India STAT</title>
+
+    <!-- CSS  -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <script data-ad-client="ca-pub-7896780162740295" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <style type="text/css">
+        html * {
+            font-family: 'Roboto Slab', serif !important;
+        }
+        
+        .chartWrapper {
+            position: relative;
+            height: 30%;
+        }
+        
+        .chartWrapper > canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            height: 30%;
+        }
+        
+        .chartAreaWrapper {
+            overflow-x: scroll;
+            height: 30%;
+        }
+        
+        .vticker {}
+        
+        .vticker ul {
+            padding: 0px;
+        }
+        
+        .vticker li {
+            list-style: none;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="blue-grey darken-3" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo center responsive" style="font-size: 125%">Online Resources</a>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid">
+      <div class="section">
+        <div class="row">
+
+           <div class="col s12 m3 l3">
+              <div class="card">
+                <div class="video-container">
+                    <iframe width="853" height="480" src="https://youtube.com/embed/dHVcRgh-n8U" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Tinker: Where Coding Made Easy</span>
+                    <p>Everything needed to learn computer programming the fun way! Ages 5+. FREE access to premium coding courses during school closures.</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://www.tynker.com/" target="_blank">  <button class="btn waves-effect waves-light" type="submit" name="action">Read more</button></a>
+                </div>
+              </div>
+            </div>
+           <div class="col s12 m3 l3">
+              <div class="card">
+                <div class="video-container">
+                    <iframe width="853" height="480" src="https://www.youtube.com/embed/PVh218DoZBE" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">BrainPOP: Make Any Room a Classroom</span>
+                    <p>BrainPOP is here to help you and your curious learners stay informed and on-track with free access during school closures.</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://www.brainpop.com/" target="_blank">  <button class="btn waves-effect waves-light" type="submit" name="action">Read more</button></a>
+                </div>
+              </div>
+            </div>
+           <div class="col s12 m3 l3">
+              <div class="card">
+                <div class="video-container">
+                    <iframe width="853" height="480" src="https://youtube.com/embed/LLawGBG5-HQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Outschool: Where Kids Love Learning</span>
+                    <p>Outschool is committed to supporting those affected by closures in the wake of COVID-19. Browse our free schooling resources for educators, families, and learners.</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://outschool.com/" target="_blank">  <button class="btn waves-effect waves-light" type="submit" name="action">Read more</button></a>
+                </div>
+              </div>
+            </div>
+           <div class="col s12 m3 l3">
+              <div class="card">
+                <div class="video-container">
+                    <iframe width="853" height="480" src="https://youtube.com/embed/6Dud1UjGn70" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Beast Academy: Learn Anywhere</span>
+                    <p>Learn math from rigorous, beautifully illustrated guidebooks. Reinforce and master concepts with hundreds of practice problems, puzzles, and games.</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://beastacademy.com/" target="_blank">  <button class="btn waves-effect waves-light" type="submit" name="action">Read more</button></a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="section">
+        <div class="row">
+                <div class="col s12 m6 l6">
+                    <div class="container">
+                        <h5 style="font-weight: bold; padding-left: 10px;">Latest News</h5>
+                        <div class="preloader-wrapper small active" id="loader">
+                            <div class="spinner-layer spinner-green-only">
+                              <div class="circle-clipper left">
+                                <div class="circle"></div>
+                              </div><div class="gap-patch">
+                                <div class="circle"></div>
+                              </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="vticker">
+                            <ul id="newsCards">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m6 l6">
+                    <div class="container">
+                        <h5 style="font-weight: bold; padding-left: 10px;">For OUR KIDS - More ...</h5>
+
+      					<div class="card lime accent-2">
+        					<div class="card-content red-text">
+          						<span class="card-title">Online Resources and Youtube Channels.
+          						Games, Discovery Education, Science Channel, Kids Learning Tube.</span>
+        						<div class="chip"><a href="kids_resources.html" target="_blank">Link</a></div>
+                              	<p>We would like to share an awesome list of ideas.</p>
+        					</div>
+      					</div>
+					</div>
+                </div>
+
+
+            </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid">
+      <div class="section">
+        <div class="row">
+            <div class="col s12 m3 l3">
+              <div class="card">
+                <div class="card-image">
+                  <img src="image/lv.png">
+                  <span class="card-title"></span>
+                </div>
+                <div class="card-content">
+                  <p>LibriVox volunteers record chapters of books in the public domain, and then we release the audio files back onto the net for free. All our audio is in the public domain, so you may...</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://librivox.org/" target="_blank">  <button class="btn waves-effect waves-light" type="submit" name="action">Read more</button></a>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m3 l3">
+              <div class="card">
+                <div class="card-image">
+                  <img src="image/nlist.png">
+                  <span class="card-title"></span>
+                </div>
+                <div class="card-content">
+                  <p>The Project entitled "National Library and Information Services Infrastructure for Scholarly Content (N-LIST)", was jointly executed by the e-ShodhSindhu Consortium, INFLIBNET ...</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://nlist.inflibnet.ac.in/" target="_blank">  <button class="btn waves-effect waves-light" type="submit" name="action">Read more</button></a>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m3 l3">
+              <div class="card">
+                <div class="card-image">
+                  <img src="image/swayam.png">
+                  <span class="card-title"></span>
+                </div>
+                <div class="card-content">
+                  <p>SWAYAM is a programme initiated by Government of India and designed to achieve the three cardinal principles of Education Policy viz., access, equity and quality. The objective of ...</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://swayam.gov.in/" target="_blank">  <button class="btn waves-effect waves-light" type="submit" name="action">Read more</button></a>
+                </div>
+              </div>
+            </div>            
+            <div class="col s12 m3 l3">
+              <div class="card">
+                <div class="card-image">
+                  <img src="image/nptel.png">
+                  <span class="card-title"></span>
+                </div>
+                <div class="card-content">
+                  <p>The National Programme on Technology Enhanced Learning (NPTEL) was initiated by seven Indian Institutes of Technology (Bombay, Delhi, Kanpur, Kharagpur, Madras, Guwahati and Roorkee) ...</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://nptel.ac.in/" target="_blank">  <button class="btn waves-effect waves-light" type="submit" name="action">Read more</button></a>
+                </div>
+              </div>
+            </div>            
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer blue-grey darken-3">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container" style="font-size: 10px">
+                Department of Computer Applications - <a class="orange-text text-lighten-3" href="https://mesmarampally.org/Department/Index.aspx?Option=5&Sub=59" target="_blank">MES College Marampally</a><br /> Courtesy - Data (covid19india.org) & News (The Hindu RSS Feeds)
+            </div>
+        </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script type="text/javascript" src="js/operations.js?1"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://rawgit.com/Anujarya300/bubble_maps/master/data/geography-data/datamaps.none.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easy-ticker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var dd = $('.vticker').easyTicker({
+                direction: 'up',
+                easing: 'easeInOutBack',
+                speed: 'slow',
+                interval: 5000,
+                height: 'auto',
+                visible: 1,
+                mousePause: 0,
+                controls: {
+                    up: '.up',
+                    down: '.down',
+                    toggle: '.toggle',
+                    stopText: 'Stop !!!'
+                }
+            }).data('easyTicker');
+
+        });
+    </script>
+    <script>
+        var dataMain;
+        var canvasFuelSpend = $('#chart-FuelSpend');
+        var ctx = document.getElementById("chart-total").getContext("2d");
+        $.ajax({
+            url: "https://api.covid19india.org/data.json",
+            success: function(data) {
+                dataMain = data.statewise;
+                var mappedData = makeData(dataMain);
+                var stateGraphData = makeDataForStateGraph(dataMain);
+                var totalGraphData = makeDataForProgressGraph(data.cases_time_series);
+                var map = new Datamap({
+                    element: document.getElementById('map'),
+                    responsive: true,
+                    geographyConfig: {
+                        popupOnHover: true,
+                        highlightOnHover: true,
+                        borderColor: '#FDFDFD',
+                        borderWidth: 0.5,
+                        dataUrl: 'https://raw.githubusercontent.com/covid19india/covid19india-react/master/public/maps/india.json',
+                        popupTemplate: function(geography, data) {
+                            var i = parseInt(mappedData[geography.properties.ST_NM.toLowerCase().split(" ")[0]])
+                            return ['<div class="hoverinfo"><strong>' + dataMain[i].state + '</strong>',
+                                '<br/>Active: ' + dataMain[i].active + '',
+                                '<br/>Confirmed: ' + dataMain[i].confirmed + '',
+                                '<br/>Deaths: ' + dataMain[i].deaths + '',
+                                '<br/>Recovered: ' + dataMain[i].recovered + '',
+                                '<br/>Last Update: ' + dataMain[i].lastupdatedtime + '',
+                                '</div>'
+                            ].join('');
+                        },
+                        //dataJson: topoJsonData
+                    },
+                    fills: {
+                        'MAJOR': '#306596',
+                        'MEDIUM': '#0fa0fa',
+                        'MINOR': '#bada55',
+                        defaultFill: '#abdda4'
+                    },
+                    scope: 'india',
+                    setProjection: function(element, options) {
+                        var projection, path;
+                        projection = d3.geo.mercator()
+                            .center([78.9629, 23.5937])
+                            .scale(element.offsetWidth * 1.5)
+                            .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+
+                        path = d3.geo.path()
+                            .projection(projection);
+
+                        return {
+                            path: path,
+                            projection: projection
+                        };
+                    }
+                });
+                var chartFuelSpend = new Chart(canvasFuelSpend, {
+                    type: 'bar',
+                    data: {
+                        datasets: [{
+                            label: 'Confirmed',
+                            data: stateGraphData.confirmed,
+                            barThickness: 2,
+                            backgroundColor: "#abdda4",
+                        }, {
+                            label: 'Recovered',
+                            data: stateGraphData.recovered,
+                            barThickness: 2,
+                            backgroundColor: "#F4B400",
+                        }, {
+                            label: 'Deceased',
+                            data: stateGraphData.deceased,
+                            barThickness: 2,
+                            backgroundColor: "#DB4437",
+                        }],
+                        labels: stateGraphData.states
+                    },
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        }
+                    }
+                });
+                addData(10, chartFuelSpend);
+                var data = {
+                    labels: totalGraphData.label,
+                    datasets: [{
+                        label: "Total Confirmed Cases",
+                        fill: false,
+                         borderColor: "#4285F4",
+                         backgroundColor: "#4285F4",
+                        data: totalGraphData.data.confirmed
+                    }, {
+                        label: "Total Recovered Cases",
+                        fill: false,
+                         borderColor: "#F4B400",
+                         backgroundColor: "#F4B400",
+                        data: totalGraphData.data.recovered
+                    }, {
+                        label: "Total Deceased Cases",
+                        fill: false,
+                         borderColor: "#DB4437",
+                         backgroundColor: "#DB4437",
+                        data: totalGraphData.data.deceased
+                    }]
+                };
+                var myLineChart = new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: {}
+                });
+                d3.select(window).on('resize', function() {
+                    map.resize();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
